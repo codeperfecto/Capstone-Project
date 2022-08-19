@@ -4,19 +4,19 @@ from pyspark.sql.types import *
 
 def drop_empty_columns(df, columns=[]):
     """
-     Drop columns with null or None values
-        :param df: dataframe
-        :param columns: columns list to check
-        :return: updated dataframe
+     Drop null,none columns
+        :param df: It is dataframe
+        :param columns: List of columns that need to be checked
+        :return: output updated dataframe
     """
-    print("Missing data is dropped..")
+    print("The missing data is dropped...")
     df.na.drop(how="any", subset=columns).show(truncate=False)
     
     return df
 
 def drop_duplicate_rows(df, cols=[]):
     """
-    Drop columns with null or None values
+    Drop duplicate columns
     :param df: dataframe
     :param columns: columns list to check
     :return: updated dataframe
@@ -28,8 +28,8 @@ def drop_duplicate_rows(df, cols=[]):
    
 def data_quality_check(df, table):
     """
-     Performs data quality check
-        :param df: spark dataframe to check counts on.
+     Data Quality check perfromed
+        :param df: It is a spark dataframe to check  record counts
         :param table: name of table
     """    
     record_count = df.count()
